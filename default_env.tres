@@ -1,0 +1,14 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[resource]
+background_sky = SubResource( 1 )
+fog_enabled = true
+tonemap_mode = 2
+auto_exposure_enabled = true
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_quality = 2
+adjustment_enabled = true
+

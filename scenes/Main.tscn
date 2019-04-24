@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/architect-s-daughter/ArchitectsDaughter.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://body.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/button_navigation.gd" type="Script" id=3]
+[ext_resource path="res://images/bg1.jpg" type="Texture" id=4]
+[ext_resource path="res://prefabs/bgaudio.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_color = Color( 0.223529, 0.227451, 0.0352941, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+outline_size = 1
+outline_color = Color( 0.490196, 0.992157, 0.101961, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/VBoxContainer"]
+alignment = 1
+
+[node name="titles" type="Node" parent="Node2D/VBoxContainer/HBoxContainer"]
+editor/display_folded = true
+
+[node name="title" type="Label" parent="Node2D/VBoxContainer/HBoxContainer/titles"]
+anchor_right = 1.0
+margin_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = ".SDT File manipulator"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="about" type="Label" parent="Node2D/VBoxContainer/HBoxContainer/titles"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.8421
+margin_top = 460.105
+margin_right = -215.158
+margin_bottom = -103.895
+custom_fonts/font = SubResource( 2 )
+text = "Created by Andrej Poženel (Slovenian Developement Team AKA SDT)"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="buttons" type="Node" parent="Node2D/VBoxContainer/HBoxContainer"]
+
+[node name="homepage" type="LinkButton" parent="Node2D/VBoxContainer/HBoxContainer/buttons"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -121.5
+margin_top = 74.98
+margin_right = 121.5
+margin_bottom = 117.98
+custom_fonts/font = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Node2D/VBoxContainer/HBoxContainer/buttons/homepage"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "go to homepage"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Edit" type="Button" parent="Node2D/VBoxContainer/HBoxContainer/buttons"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -67.8947
+margin_top = -29.0642
+margin_right = 72.1053
+margin_bottom = 10.9357
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Node2D/VBoxContainer/HBoxContainer/buttons/Edit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "Edit"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Upload or Download" type="Button" parent="Node2D/VBoxContainer/HBoxContainer/buttons"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -197.76
+margin_top = -153.0
+margin_right = 211.24
+margin_bottom = -113.0
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Node2D/VBoxContainer/HBoxContainer/buttons/Upload or Download"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "Upload or Download SDT file"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="bg1" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="bgaudio" parent="." instance=ExtResource( 5 )]
+
+[connection signal="pressed" from="Node2D/VBoxContainer/HBoxContainer/buttons/homepage" to="Node2D/VBoxContainer/HBoxContainer/buttons/homepage" method="_on_Exit_pressed"]
